@@ -1,7 +1,7 @@
 class OmniauthCallbacksController < ApplicationController
   def connect_twitter
     render plain: "Success!"
-    byebug
+    
   end
 
   private
