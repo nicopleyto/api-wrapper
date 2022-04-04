@@ -1,4 +1,4 @@
-<h1>Home#main</h1>
-<p>Find me in app/views/home/main.html.erb</p>
+<h1>Hello <%=current_user.email.split('@').first%>!</h1>
+<p>To get started, please connect your twitter account.</p>
 
 <%= button_to "Connect Twitter", "/auth/twitter", method: :post, :class => "btn btn-primary"%>
