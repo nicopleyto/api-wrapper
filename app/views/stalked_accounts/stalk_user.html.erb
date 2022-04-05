@@ -1,0 +1,5 @@
+<%= form_with url: stalked_accounts_stalk_info_path, method: :get do |form| %>
+  <%= form.label :username, "Search for:" %>
+  <%= form.text_field :username %>
+  <%= form.submit "Search" %>
+<% end %>

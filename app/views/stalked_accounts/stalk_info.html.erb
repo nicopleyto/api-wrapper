@@ -1,0 +1,73 @@
+<div class = "card mx-auto text-center mb-5">
+    <h4>Account details</h4>
+    <h6>username: <%= link_to "@#{@stalked_user["data"]["username"]}", "https://twitter.com/#{@stalked_user["data"]["username"]}", target: :_blank %></h6>
+    <h6>name: <%= @stalked_user["data"]["name"]%></h6>
+    <h6>twitter id: <%= @stalked_user["data"]["id"]%></h6>
+</div>
+
+<div class ="row">
+    <div class = "col-4">
+        <h4>Followers:</h4>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">name</th>
+                <th scope="col">username</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @followers["data"].each_with_index do |account, index| %>
+                <tr>
+                <th scope="row"><%= index %></th>
+                <td><%= account["name"] %></td>
+                <td><%= link_to "@#{account["username"]}", "https://twitter.com/#{account["username"]}", target: :_blank %></td>
+                </tr>
+            <%end%>
+            </tbody>
+        </table>
+    </div>
+
+    <div class = "col-4">
+        <h4>Following:</h4>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">name</th>
+                <th scope="col">username</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @followed_accounts["data"].each_with_index do |account, index| %>
+                <tr>
+                <th scope="row"><%= index %></th>
+                <td><%= account["name"] %></td>
+                <td><%= link_to "@#{account["username"]}", "https://twitter.com/#{account["username"]}", target: :_blank %></td>
+                </tr>
+            <%end%>
+            </tbody>
+        </table>
+    </div>
+
+    <div class = "col-4">
+        <h4>Liked Tweets:</h4>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tweet</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @liked_tweets["data"].each_with_index do |account, index| %>
+                <tr>
+                <th scope="row"><%= index %></th>
+                <td><%= account["text"] %></td>
+                <td><%#= link_to "View Tweet", "https://twitter.com/#{account["username"]}/status/#{account["id"]}", target: :_blank %></td>
+                </tr>
+            <%end%>
+            </tbody>
+        </table>
+    </div>
+</div>

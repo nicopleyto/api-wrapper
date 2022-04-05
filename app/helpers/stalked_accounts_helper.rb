@@ -1,0 +1,2 @@
+module StalkedAccountsHelper
+end
