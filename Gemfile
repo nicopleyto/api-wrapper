@@ -60,3 +60,7 @@ gem 'faraday'
 gem 'omniauth-twitter'
 gem 'omniauth-rails_csrf_protection'
 gem 'devise'
+
+gem 'net-smtp', require: false
+gem 'net-pop', require: false
+gem 'net-imap', require: false
