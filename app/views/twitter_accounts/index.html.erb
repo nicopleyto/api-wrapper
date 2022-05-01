@@ -1,12 +1,11 @@
-<%= link_to "Connect a Twitter account", "/auth/twitter", method: :post, class: "btn btn-primary" %>
+<%= link_to "Connect a Twitter account", "/auth/twitter", method: :post, class: "px-3 py-2 rounded-xl bg-blue-500 text-white shadow-md hover:bg-blue-600" %>
 
 <% @twitter_accounts.each do |account| %>
-    <div class="d-flex align-items-center my-4 shadow-lg">
-        <div class="mx-4 bg-blue-500">
-            <%= image_tag account.image, class: "rounded-circle" %>
-            <%= link_to "@#{account.username}", "https://twitter.com/#{account.username}", target: :_blank %>
+    <div class="flex items-center mx-auto shadow-lg border max-w-sm rounded-xl p-6 justify-between">
+        <div class="shrink-0 flex items-center space-x-2">
+            <%= image_tag account.image, class: "rounded-full" %>
+            <%= link_to "@#{account.username}", "https://twitter.com/#{account.username}", target: :_blank, class: "text-blue-500 font-bold"  %>
         </div>
-
-        <%= button_to "Disconnect", account, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+        <%= link_to "Disconnect", account, method: :delete, data: { confirm: "Are you sure?" }, class: "px-3 py-1 rounded-xl bg-red-600 text-white shadow-md hover:bg-red-700" %>
     </div>
 <% end %>
