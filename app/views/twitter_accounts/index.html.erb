@@ -1,8 +1,8 @@
 <%= link_to "Connect a Twitter account", "/auth/twitter", method: :post, class: "btn btn-primary" %>
 
 <% @twitter_accounts.each do |account| %>
-    <div class="d-flex align-items-center my-4">
-        <div class="mx-4">
+    <div class="d-flex align-items-center my-4 shadow-lg">
+        <div class="mx-4 bg-blue-500">
             <%= image_tag account.image, class: "rounded-circle" %>
             <%= link_to "@#{account.username}", "https://twitter.com/#{account.username}", target: :_blank %>
         </div>
