@@ -7,6 +7,6 @@ class Tweet < ApplicationRecord
 
   # sets the default value of publish_at datetime_select to 1 day later upon initialize
   after_initialize do
-    self.publish_at ||= 24.hours.from.now
+    self.publish_at ||= 24.hours.from_now
   end
 end

@@ -1,5 +1,6 @@
 <div class="bg-white mx-auto mt-16 shrink max-w-lg border space-y-5 p-5 rounded-xl shadow-md">
     <%= form_with model: @tweet do |f| %>
+        <%= render "layouts/errors", f: f %>
         <div class="field">
             <%= f.label :twitter_account_id, class: "block text-md mt-3 text-gray-700" %>
             <%= f.collection_select :twitter_account_id, current_user.twitter_accounts, :id, :username, {}, {class: "shadow-sm mt-1 p-2 border rounded"} %>
