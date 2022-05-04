@@ -10,6 +10,12 @@ class Tweet < ApplicationRecord
     self.publish_at ||= 24.hours.from_now
   end
 
+  after_save_commit do
+    if self.publish_at_previously_changed?
+      TweetJob.set(wait_until: self.publish_at).perform_later(self)
+    end
+  end
+
   def published?
     self.tweet_id? #adding ? to a column checks whether there is value by returning a boolean
   end
