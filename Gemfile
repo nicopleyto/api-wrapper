@@ -64,3 +64,5 @@ gem 'devise'
 gem 'net-smtp', require: false
 gem 'net-pop', require: false
 gem 'net-imap', require: false
+
+gem "twitter", "~> 7.0"
