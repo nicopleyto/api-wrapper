@@ -1,0 +1,24 @@
+<div class="bg-white mx-auto mt-16 shrink max-w-lg border space-y-5 p-5 rounded-xl shadow-md">
+    <%= form_with model: tweet do |f| %>
+        <%= render "layouts/errors", f: f %>
+        <div class="field">
+            <%= f.label :twitter_account_id, class: "block text-md mt-3 text-gray-700" %>
+            <%= f.collection_select :twitter_account_id, current_user.twitter_accounts, :id, :username, {}, {class: "shadow-sm mt-1 p-2 border rounded"} %>
+            <%#= link_to "Connect a Twitter account", "/auth/twitter", class:""%>
+        </div>
+
+        <div class="field">
+            <%= f.label :body, class: "block text-md mt-3 text-gray-700" %>
+            <%= f.text_area :body, class: "shadow-sm mt-1 p-2 border w-full rounded" %>
+        </div>
+
+        <div class="field">
+            <%= f.label :publish_at, class: "block text-md mt-3 text-gray-700" %>
+            <%= f.datetime_select :publish_at, {}, {class: "shadow-sm mt-1 p-2 border rounded"} %>
+        </div>
+
+        <div class="actions mt-6">
+            <%= f.submit "Schedule Tweet", class: "cursor-pointer inline-flex px-5 py-2 rounded-xl bg-blue-500 text-white shadow-md hover:bg-blue-600" %>
+        </div>
+    <% end %>
+</div>
