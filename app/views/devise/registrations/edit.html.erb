@@ -9,6 +9,11 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "shadow-sm mt-1 p-2 border w-full rounded" %>
     </div>
 
+    <div class="field">
+      <%= f.label :time_zone, class:"block text-md mt-3 text-gray-700" %>
+      <%= f.select :time_zone, time_zone_options_for_select(f.object.time_zone, nil, ActiveSupport::TimeZone), {}, {class: "shadow-sm mt-1 p-2 border w-full rounded"} %>
+    </div>
+
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>

@@ -1,6 +1,3 @@
-<h1>Tweets#index</h1>
-<p>Find me in app/views/tweets/index.html.erb</p>
-
 <div class="mx-auto shrink max-w-lg space-y-5 p-5 rounded-xl">
     <% if current_user.twitter_accounts.any? %>
         <%= link_to 'Schedule a Tweet', new_tweet_path %>
