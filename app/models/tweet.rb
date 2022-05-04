@@ -9,4 +9,8 @@ class Tweet < ApplicationRecord
   after_initialize do
     self.publish_at ||= 24.hours.from_now
   end
+
+  def published?
+    self.tweet_id? #adding ? to a column checks whether there is value by returning a boolean
+  end
 end

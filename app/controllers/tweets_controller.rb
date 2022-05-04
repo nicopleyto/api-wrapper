@@ -1,5 +1,8 @@
 class TweetsController < ApplicationController
+  before_action :set_tweet, only: [:edit, :update, :destroy]
+
   def index
+    @tweets = current_user.tweets
   end
 
   def new
@@ -10,7 +13,7 @@ class TweetsController < ApplicationController
     @tweet = current_user.tweets.build(tweet_params)
 
     if @tweet.save
-      redirect_to tweets_path, notice: "Tweet has been succcessfully scheduled."
+      redirect_to tweets_path, notice: "Tweet has been scheduled."
     else
       render :new
     end
@@ -20,14 +23,25 @@ class TweetsController < ApplicationController
   end
 
   def update
+    if @tweet.update(tweet_params)
+      redirect_to tweets_path, notice: "Tweet has been updated."
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @tweet.destroy
+    redirect_to tweets_path, notice: "Tweet has been deleted."
   end
 
   private
 
   def tweet_params
     params.require(:tweet).permit(:body, :twitter_account_id, :publish_at)
+  end
+
+  def set_tweet
+    @tweet = current_user.tweets.find(params[:id])
   end
 end
