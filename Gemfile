@@ -57,12 +57,20 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'faraday'
+
+#twitter authentication wrapper
 gem 'omniauth-twitter'
 gem 'omniauth-rails_csrf_protection'
+
 gem 'devise'
 
+#heroku deployment bug fix
 gem 'net-smtp', require: false
 gem 'net-pop', require: false
 gem 'net-imap', require: false
 
+#twitter api wrapper
 gem "twitter", "~> 7.0"
+
+#for detecting timezone in client side
+gem 'rails-assets-jsTimezoneDetect', source: 'https://rails-assets.org'

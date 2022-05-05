@@ -1,4 +1,9 @@
 GEM
+  remote: https://rails-assets.org/
+  specs:
+    rails-assets-jsTimezoneDetect (1.0.6)
+
+GEM
   remote: https://rubygems.org/
   specs:
     actioncable (6.1.5)
@@ -316,6 +321,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.7)
+  rails-assets-jsTimezoneDetect!
   sass-rails (>= 6)
   selenium-webdriver
   spring

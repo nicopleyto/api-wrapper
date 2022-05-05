@@ -23,6 +23,8 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "shadow-sm mt-1 p-2 border w-full rounded" %>
     </div>
 
+    <%= f.hidden_field :time_zone, id: 'user-time-zone' %>
+
     <div class="actions mt-6">
       <%= f.submit "Sign up", class: "cursor-pointer inline-flex px-5 py-2 rounded-xl bg-blue-500 text-white shadow-md hover:bg-blue-600" %>
     </div>
@@ -32,3 +34,13 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
+
+<%# populates the hidden field with user's browser timezone once page is loaded %>
+<script type="text/javascript">
+  document.addEventListener('turbolinks:load', 
+    () => { 
+      document.getElementById('user-time-zone').value = jstz.determine().name()
+      console.log(document.getElementById('user-time-zone'))
+    }
+  )
+</script>
