@@ -71,6 +71,3 @@ gem 'net-imap', require: false
 
 #twitter api wrapper
 gem "twitter", "~> 7.0"
-
-#for detecting timezone in client side
-gem 'rails-assets-jsTimezoneDetect', source: 'https://rails-assets.org'
