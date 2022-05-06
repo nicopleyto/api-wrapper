@@ -71,3 +71,6 @@ gem 'net-imap', require: false
 
 #twitter api wrapper
 gem "twitter", "~> 7.0"
+
+#for running background jobs
+gem "sidekiq", "~> 6.4"
