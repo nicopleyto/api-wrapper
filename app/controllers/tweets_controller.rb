@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:edit, :update, :destroy]
+  around_action :set_time_zone, if: :current_user
 
   def index
     @tweets = current_user.tweets
@@ -43,5 +44,9 @@ class TweetsController < ApplicationController
 
   def set_tweet
     @tweet = current_user.tweets.find(params[:id])
+  end
+
+  def set_time_zone(&block)
+    Time.use_zone(current_user.time_zone, &block)
   end
 end
