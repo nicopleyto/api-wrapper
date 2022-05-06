@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :twitter_accounts
+  has_many :twitter_accounts, dependent: :destroy
   has_many :tweets
 
   after_create :set_initial_time_zone
