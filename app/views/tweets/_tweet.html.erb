@@ -1,16 +1,24 @@
-<div class="flex bg-white items-center shadow-sm max-w-sm border rounded-xl p-6 justify-between">
-    <%= tweet.body %>
-    <br>
-    <div class="shrink-0 flex items-center space-x-2">
-        <%= image_tag tweet.twitter_account.image, class: "rounded-full" %>
-        <%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: :_blank, class: "text-blue-500 font-semibold hover:text-blue-600"  %>
+<div class="flex bg-white shadow-sm max-w-3xl border items-start justify-between rounded-xl p-6 mb-1">
+    <div class ="flex flex-row space-x-2 items-start">
+        <%= image_tag tweet.twitter_account.image, class: "rounded-full shrink-0" %>
 
+        <div class="flex flex-col">
+            <%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: :_blank, class: "text-blue-500 font-semibold hover:text-blue-600"  %>   
+            <p class=""><%= tweet.body %></p>
+            <% if tweet.published? %>
+                <p class="text-sm text-gray-500 mt-2">Published at <%= l tweet.publish_at, format: :short %></p>
+            <% else %>
+                <p class="text-sm text-gray-500 mt-2">Scheduled for <%= l tweet.publish_at, format: :short %></p>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="flex flex-col space-y-1">
         <% if tweet.published? %>
-            <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank, class: "" %>
+            <%= link_to "", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank, class: "bi bi-box-arrow-up-right text-blue-500 hover:text-blue-600" %>
         <% else %>
-            Scheduled for <%= l tweet.publish_at, format: :short %>
-            <%= link_to "Edit Tweet", edit_tweet_path(tweet), class:"" %>
-            <%= link_to "Destroy Tweet", tweet, method: :destroy, data: { confirm: "Are you sure?" }, class: ""%>
+            <%= link_to "", edit_tweet_path(tweet), class:"bi bi-pencil-square text-blue-500 hover:text-blue-600" %>
         <% end %>
+        <%= link_to "", tweet, method: :destroy, data: { confirm: "Are you sure?" }, class: "bi bi-trash-fill text-red-600 hover:text-red-700"%>
     </div>
 </div>

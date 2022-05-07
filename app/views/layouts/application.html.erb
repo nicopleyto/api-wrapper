@@ -12,13 +12,15 @@
     <!-- determine client side time zone  -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.7/jstz.min.js" integrity="sha512-pZ0i46J1zsMwPd2NQZ4IaL427jXE2RVHMk3uv/wPTNlBVp9AbB1L65/4YdrXRPLEmyZCkY9qYOOsQp44V4orHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <title>Apiwrapper</title>
+    <title>NP Twit</title>
     
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%#= stylesheet_pack_tag 'stylesheets', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <!-- commented out stylesheet tags because stylesheet is being imported through application.js file -->
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 </head>
