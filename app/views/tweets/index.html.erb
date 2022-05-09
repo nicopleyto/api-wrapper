@@ -3,8 +3,14 @@
         <%= link_to ' Schedule a Tweet', new_tweet_path, class: "bi bi-twitter inline-block px-3 py-2 rounded-xl bg-blue-500 text-white shadow-md hover:bg-blue-600 mb-2" %>
     <% elsif current_user.twitter_accounts.none? %>
         <%= link_to ' Connect a Twitter account', "/auth/twitter", method: :post, class: "bi bi-twitter inline-block px-3 py-2 rounded-xl bg-blue-500 text-white shadow-md hover:bg-blue-600 mb-2" %>
-        <%= render 'svg/buildings' %>
     <% end %>
 
-    <%= render @tweets %>
+    <% if @tweets.any? %>
+        <%= render @tweets %>
+    <% elsif @tweets.none? %>
+        <div class="mx-auto max-w-md shrink p-5">
+            <%= render 'svg/buildings' %>
+        </div>
+        <p class="text-sm text-center text-gray-500">no scheduled tweets.</p>
+    <% end %>
 </div>
