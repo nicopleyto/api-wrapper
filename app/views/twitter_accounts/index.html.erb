@@ -1,16 +1,21 @@
 <div class="mx-auto shrink max-w-md p-5">
     <%= link_to " Connect a Twitter account", "/auth/twitter", method: :post, class: "bi bi-twitter inline-block px-3 py-2 rounded-xl bg-blue-500 text-white shadow-md hover:bg-blue-600 mb-2" %>
 
-    <% @twitter_accounts.each do |account| %>
-        <div class="flex bg-white items-center shadow-sm max-w-sm border rounded-xl p-6 justify-between mb-1">
-            <div class="shrink-0 flex items-start space-x-2">
-                <%= image_tag account.image, class: "rounded-full" %>
-                <div class="flex flex-col">
-                    <%= link_to account.name, "https://twitter.com/#{account.username}", target: :_blank, class: "font-semibold text-gray-500 hover:text-gray-900 text-md" %>
-                    <%= link_to "@#{account.username}", "https://twitter.com/#{account.username}", target: :_blank, class: "text-blue-500 font-semibold hover:text-blue-600"  %>
+    <% if @twitter_accounts.any? %>
+        <% @twitter_accounts.each do |account| %>
+            <div class="flex bg-white items-center shadow-sm max-w-sm border rounded-xl p-6 justify-between mb-1">
+                <div class="shrink-0 flex items-start space-x-2">
+                    <%= image_tag account.image, class: "rounded-full" %>
+                    <div class="flex flex-col">
+                        <%= link_to account.name, "https://twitter.com/#{account.username}", target: :_blank, class: "font-semibold text-gray-500 hover:text-gray-900 text-md" %>
+                        <%= link_to "@#{account.username}", "https://twitter.com/#{account.username}", target: :_blank, class: "text-blue-500 font-semibold hover:text-blue-600"  %>
+                    </div>
                 </div>
+                <%= link_to "Disconnect", account, method: :delete, data: { confirm: "Are you sure?" }, class: "px-2 py-1 rounded-xl text-red-600 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-sm font-medium" %>
             </div>
-            <%= link_to "Disconnect", account, method: :delete, data: { confirm: "Are you sure?" }, class: "px-2 py-1 rounded-xl text-red-600 bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white text-sm font-medium" %>
-        </div>
+        <% end %>
+    <% elsif @twitter_accounts.none? %>
+        <%= render 'svg/buildings' %>
+        <p class="text-sm text-gray-500">no connected twitter accounts found.</p>
     <% end %>
 </div>
