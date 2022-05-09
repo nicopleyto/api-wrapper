@@ -1,24 +1,7 @@
-# README
+# NP-Twit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+NP Twit is a web application made to connect to and explore Twitter API functionality using Ruby on Rails. It allows you to schedule your tweets in to the future after connecting your twitter account.
 
-Things you may want to cover:
+## Limitations
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This app was deployed to Heroku where the default behavior of web dynos is to sleep every thirty minutes if no request was made to the website. Because of this, the application cannot send out scheduled tweets while the dynos are sleeping.
