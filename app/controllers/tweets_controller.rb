@@ -3,7 +3,7 @@ class TweetsController < ApplicationController
   around_action :set_time_zone, if: :current_user
 
   def index
-    @tweets = current_user.tweets
+    @tweets = current_user.tweets.includes(:twitter_account)
   end
 
   def new
